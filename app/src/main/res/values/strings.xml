@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">MP3Player</string>
+    <string name="next">Next</string>
+    <string name="play">Play</string>
+    <string name="prev">Prev</string>
+    <string name="pause">Pause</string>
+</resources>

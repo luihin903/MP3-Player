@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+    />
+
+    <androidx.media3.ui.PlayerView
+        android:id="@+id/playerView"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        app:show_fastforward_button="true"
+        app:show_rewind_button="true"
+        app:show_shuffle_button="false"
+    />
+<!--        app:show_rewind_buton="false"-->
+<!--        app:show_fastforward_button="false"-->
+
+
+<!--    <LinearLayout-->
+<!--        android:orientation="horizontal"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--    >-->
+<!--        <Button-->
+<!--            android:id="@+id/prevButton"-->
+<!--            android:text="@string/prev"-->
+<!--            android:layout_weight="1"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--        />-->
+
+<!--        <Button-->
+<!--            android:id="@+id/playButton"-->
+<!--            android:text="@string/play"-->
+<!--            android:layout_weight="1"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--        />-->
+
+<!--        <Button-->
+<!--            android:id="@+id/nextButton"-->
+<!--            android:text="@string/next"-->
+<!--            android:layout_weight="1"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--        />-->
+
+<!--    </LinearLayout>-->
+
+</LinearLayout>
