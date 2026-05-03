@@ -15,6 +15,7 @@ import android.provider.MediaStore;
 import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ListView;
 
 import androidx.annotation.NonNull;
@@ -24,6 +25,11 @@ import androidx.core.content.ContextCompat;
 import androidx.media3.common.MediaItem;
 import androidx.media3.exoplayer.ExoPlayer;
 import androidx.media3.ui.PlayerView;
+
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdSize;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 
 import org.jaudiotagger.audio.AudioFile;
 import org.jaudiotagger.audio.AudioFileIO;
@@ -47,6 +53,8 @@ public class MainActivity extends AppCompatActivity {
     private static final int REQUEST_AUDIO = 100;
 
     private ExoPlayer player;
+//    private AdView adView;
+//    private FrameLayout adContainerView;
     private ListView listView;
     private PlayerView playerView;
 //    Button prevButton, playButton, nextButton;
@@ -69,8 +77,27 @@ public class MainActivity extends AppCompatActivity {
 //        prevButton = findViewById(R.id.prevButton);
 //        playButton = findViewById(R.id.playButton);
 //        nextButton = findViewById(R.id.nextButton);
+
         Log.d("Debug", "onCreate");
+        loadAds();
         checkPermission();
+    }
+
+    private void loadAds() {
+        new Thread(() -> {
+            MobileAds.initialize(this, initializationStatus -> {});
+        }).start();
+
+        AdView adView = new AdView(this);
+        adView.setAdUnitId(getString(R.string.AD_UNIT_ID));
+        adView.setAdSize(AdSize.getLargeAnchoredAdaptiveBannerAdSize(this, 360));
+
+        FrameLayout adContainerView = findViewById(R.id.ad_view_container);
+        adContainerView.removeAllViews();
+        adContainerView.addView(adView);
+
+        AdRequest adRequest = new AdRequest.Builder().build();
+        adView.loadAd(adRequest);
     }
 
     private void checkPermission() {
